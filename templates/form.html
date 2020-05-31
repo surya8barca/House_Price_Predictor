@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method = "POST" action="/predict" enctype="multipart/form-data">
+        <center>
+            <label for="areaIncome">Avg. Area Income</label>
+            <input type="number" step ="0.001" id="areaIncome" name="areaIncome" placeholder="Avg. Area Income">
+            <br>
+            <label for="areahouseage">Avg. Area House Age</label>
+            <input type="number" step ="0.001" id="areahouseage" name="areahouseage" placeholder="Avg. Area House Age">
+            <br>
+            <label for="areanorooms">Avg. Area Number of Rooms</label>
+            <input type="number" step ="0.001" id="areanorooms" name="areanorooms" placeholder="Avg. Area Number of Rooms">
+            <br>
+            <label for="areanobedrooms">Avg. Area Number of Bedrooms</label>
+            <input type="number" step ="0.001" id="areanobedrooms" name="areanobedrooms" placeholder="Avg. Area Number of Bedrooms">
+            <br>
+            <label for="areapopulation">Area Population</label>
+            <input type="number" step ="0.001" id="areapopulation" name="areapopulation" placeholder="Area Population">
+            <br>
+            <button id="button" type="submit">Submit</button>
+        </center>
+      </form>
+</body>
+</html>
