@@ -11,7 +11,8 @@ def index():
 
 @app.route("/predict",methods=['POST'])
 def predict():
-    data=[[float(request.form['areaIncome']),float(request.form['areahouseage']),float(request.form['areanorooms']),float(request.form['areanobedrooms']),float(request.form['areapopulation'])]]
+    result=request.form
+    data=[[float(result["areaincome"]),float(result["areahouseage"]),float(result["areanorooms"]),float(result["areanobedrooms"]),float(result["areapopulation"])]]
     model=joblib.load('house_predictor.sav')
     prediction=model.predict(data)
     return jsonify({'prediction': int(prediction)}) 
