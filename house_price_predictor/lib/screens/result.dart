@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:house_price_predictor/loading/loading.dart';
 import 'package:http/http.dart';
@@ -14,16 +16,30 @@ class Result extends StatefulWidget {
 
 class _HomeState extends State<Result> {
 
-  double prediction;
+  int prediction;
 
   Future<void> predict()async{
     try
     {
-      String url='';
+      String url='https://flutteruse.herokuapp.com/predict';
       Response data = await post(
         url,
-
+        headers: <String,String>{'Content-Type':'application/json','charset':'UTF-8'},
+        body: jsonEncode(<String,double>{
+          'areaincome':widget.areaincome,
+          'areahouseage':widget.areahouseage,
+          'areanorooms':widget.areanorooms,
+          'areanobedrooms':widget.areanobedrooms,
+          'areapopulation':widget.areapopulation,
+        })
         );
+        print(data.body);
+        Map info = jsonDecode(data.body);
+        print(info["prediction"]);
+        setState(() {
+          prediction=12;
+        });
+        
     }
     catch(e)
     {
