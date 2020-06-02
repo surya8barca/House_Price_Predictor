@@ -158,7 +158,7 @@ class _HomeState extends State<Getdata> {
                                 onPressed: (){
                                   if(validform())
                                   {
-                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Result(areahouseage: areahouseage,areaincome: areaincome,areanobedrooms: areanobedrooms,areanorooms: areanorooms,areapopulation: areapopulation,)));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Result(areahouseage: areahouseage,areaincome: areaincome,areanobedrooms: areanobedrooms,areanorooms: areanorooms,areapopulation: areapopulation,)));
                                   }
                                   else{
                                     Alert(context: context,title: 'All fields are required',buttons: [],style: AlertStyle(backgroundColor:Colors.cyan)).show();

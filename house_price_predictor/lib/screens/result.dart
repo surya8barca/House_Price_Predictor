@@ -1,3 +1,5 @@
+
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -21,25 +23,11 @@ class _HomeState extends State<Result> {
   Future<void> predict()async{
     try
     {
-      String url='https://flutteruse.herokuapp.com/predict';
-      Response data = await post(
-        url,
-        headers: <String,String>{'Content-Type':'application/json','charset':'UTF-8'},
-        body: jsonEncode(<String,double>{
-          'areaincome':widget.areaincome,
-          'areahouseage':widget.areahouseage,
-          'areanorooms':widget.areanorooms,
-          'areanobedrooms':widget.areanobedrooms,
-          'areapopulation':widget.areapopulation,
-        })
-        );
-        print(data.body);
-        Map info = jsonDecode(data.body);
-        print(info["prediction"]);
+      String url='https://flutteruse.herokuapp.com/predict/?areaincome=${widget.areaincome}&areahouseage=${widget.areahouseage}&areanorooms=${widget.areanorooms}&areanobedrooms=${widget.areanobedrooms}&areapopulation=${widget.areapopulation}';
+      Response data = await get(url);
         setState(() {
-          prediction=12;
+          prediction=jsonDecode(data.body)['prediction'];
         });
-        
     }
     catch(e)
     {
@@ -65,7 +53,7 @@ class _HomeState extends State<Result> {
     else
     {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
         centerTitle: true,
@@ -97,3 +85,4 @@ class _HomeState extends State<Result> {
   }
   }
 }
+
