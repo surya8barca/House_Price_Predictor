@@ -10,27 +10,40 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Loading',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35,
-                  color: Colors.blue),
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/home.jpg'),
+              fit: BoxFit.fill,
             ),
-            SizedBox(
-              height: 15,
-            ),
-            SpinKitPouringHourglass(
-              color: Colors.blue,
-              size: 125,
-            ),
-          ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(
+                height: 100,
+              ),
+              Text(
+                'Running Machine Learning Algorithm',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 35,
+                    color: Colors.white),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              SpinKitHourGlass(
+                color: Colors.orangeAccent,
+                size: 100,
+              ),
+            ],
+          ),
         ),
       ),
     );
