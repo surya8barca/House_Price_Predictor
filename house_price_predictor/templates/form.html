@@ -1,29 +1,98 @@
 <html lang="en">
+<style>
+    input[type=number],
+    select {
+        width: 30%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: flex;
+        border: 2px solid blue;
+        border-radius: 15px;
+    }
+    input[type=submit] {
+        width: 15%;
+        background-color: #4CAF50;
+        color: white;   
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    #headings {
+        font-size: 35px;
+        font-family: cursive;
+        color:cyan;
+        text-decoration: underline;
+    }
+
+    #form h1{
+        font-size: 60px;
+        color: whitesmoke;
+    }
+
+    body {
+        background-image: url('/static/background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    fieldset {
+        width: 98%;
+        padding: 10px;
+        border: none;
+    }
+    label{
+        font-size: 30px;
+        color: yellow;
+    }
+</style>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>House Price Predictor</title>
 </head>
 <body>
-    <form method = "GET" action="/predict" enctype="multipart/form-data">
-        <center>
-            <label for="areaincome">Avg. Area Income</label>
-            <input type="number" step ="0.001" id="areaincome" name="areaincome" placeholder="Avg. Area Income">
-            <br>
-            <label for="areahouseage">Avg. Area House Age</label>
-            <input type="number" step ="0.001" id="areahouseage" name="areahouseage" placeholder="Avg. Area House Age">
-            <br>
-            <label for="areanorooms">Avg. Area Number of Rooms</label>
-            <input type="number" step ="0.001" id="areanorooms" name="areanorooms" placeholder="Avg. Area Number of Rooms">
-            <br>
-            <label for="areanobedrooms">Avg. Area Number of Bedrooms</label>
-            <input type="number" step ="0.001" id="areanobedrooms" name="areanobedrooms" placeholder="Avg. Area Number of Bedrooms">
-            <br>
-            <label for="areapopulation">Area Population</label>
-            <input type="number" step ="0.001" id="areapopulation" name="areapopulation" placeholder="Area Population">
-            <br>
-            <button id="button" type="submit">Submit</button>
-        </center>
-      </form>
+    <header>
+        <div id="headings">
+            <center>
+                <h1>House Price Prediction<br>by Machine Learning</h1>
+            </center>
+        </div>
+    </header>
+    <div id='form'>
+        <form method="GET" action="/predict" enctype="multipart/form-data">
+            <fieldset>
+                <center>
+                    <h1>Enter the details</h1>
+                <label for="areaincome">Avg. Area Income</label>
+                <input type="number" step="0.001" id="areaincome" name="areaincome" placeholder="Avg. Area Income" required>
+                <label for="areahouseage">Avg. Area House Age</label>
+                <input type="number" step="0.001" id="areahouseage" name="areahouseage"
+                    placeholder="Avg. Area House Age" required>
+                <label for="areanorooms">Avg. Area Number of Rooms</label>
+                <input type="number" step="0.001" id="areanorooms" name="areanorooms"
+                    placeholder="Avg. Area Number of Rooms" required>
+                <label for="areanobedrooms">Avg. Area Number of Bedrooms</label>
+                <input type="number" step="0.001" id="areanobedrooms" name="areanobedrooms"
+                    placeholder="Avg. Area Number of Bedrooms" required>
+                <label for="areapopulation">Area Population</label>
+                <input type="number" step="0.001" id="areapopulation" name="areapopulation"
+                    placeholder="Area Population" required>
+                <br>
+                <center>
+                    <input type="submit" value="Predict"></button>
+                </center>
+            </center>
+            </fieldset>
+        </form>
+    </div>
 </body>
+
 </html>

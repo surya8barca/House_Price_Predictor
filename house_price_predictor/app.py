@@ -12,7 +12,6 @@ def index():
 @app.route("/predict/",methods=['GET'])
 def predict():
     result=request.args
-    print(result)
     data=[[float(result["areaincome"]),float(result["areahouseage"]),float(result["areanorooms"]),float(result["areanobedrooms"]),float(result["areapopulation"])]]
     model=joblib.load('house_predictor.sav')
     prediction=model.predict(data)
